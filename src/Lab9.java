@@ -63,15 +63,41 @@ public class Lab9 {
 				}
 		    }
 		    swap(arr, j, minIndex);
-		    
+		    printArray(arr);
 		}
 		System.out.print("Selection sort: ");
 		printArray(arr);
 		System.out.println("Swaps = " + swapCount);
     }
     
+    /**
+     * Sort an array in ascending order using the Bubble Sort algorithm
+     * @param arr - array
+     */
     public static void bubbleSort(int[] arr) {
-    	
+    	swapCount = 0;
+		if (arr.length < 2) {
+		    return;
+		}
+		
+		int index = 0;
+		for (int i = 0; i < arr.length; i ++) {
+			System.out.printf("\nInteration %d:\n",i);
+			for (int j = 0; j < (arr.length-1); j++) {
+				// Swap values if next value in array is less than current value
+			    if (arr[j+1] < arr[j]){
+			    	index = j+1;
+			    	printArray(arr);
+			    	swap(arr, j, index);
+			    	
+			    }
+			        
+			}
+		}
+		printArray(arr);
+		System.out.print("Bubble sort: ");
+		printArray(arr);
+		System.out.println("Swaps = " + swapCount);
     }
     
     /**
@@ -80,7 +106,7 @@ public class Lab9 {
      * @return - new array
      */
 	public static int[][] deepCopy(int[][] arr) {
-    	int[][] newArr = new int[arr.length][arr[0].length];
+    	int[][] newArr = new int[arr.length][];
     	for (int i = 0; i < newArr.length; i++)
     	     newArr[i] = Arrays.copyOf(arr[i], arr[i].length);
     	return newArr;
@@ -96,15 +122,16 @@ public class Lab9 {
 		
 		
 		int[][] a2 = deepCopy(a1);
-		for (int i = 0; i < a2.length; i ++) {
-			printArray(a2[i]);
-		}
+	
+		/*System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		for (int i = 0; i < a1.length; i++){
+			selectionSort(a1[i]);
+		}*/
+		selectionSort(a1[0]);
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		selectionSort(a1[1]);
-		selectionSort(a1[2]);
-		selectionSort(a2[3]);
+		bubbleSort(a2[0]);
 		
-		System.out.println("A1: ");
+		/*System.out.println("A1: ");
 		for (int i = 0; i < a1.length; i ++) {
 			printArray(a1[i]);
 		}
@@ -112,7 +139,7 @@ public class Lab9 {
 		System.out.println("A2: ");
 		for (int i = 0; i < a2.length; i ++) {
 			printArray(a2[i]);
-		}
+		}*/
     }
 
     
