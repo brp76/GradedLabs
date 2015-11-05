@@ -54,8 +54,10 @@ public class Lab9 {
 	
 		    minIndex = j;
 		    minVal = arr[j];
+		    // Find minimum value in array after current value and swap
 		    for(int k = j + 1; k < arr.length; k++) {
 	
+		    	
 				if (arr[k] < minVal) {
 		
 				    minVal = arr[k];
@@ -63,7 +65,6 @@ public class Lab9 {
 				}
 		    }
 		    swap(arr, j, minIndex);
-		    printArray(arr);
 		}
 		System.out.print("Selection sort: ");
 		printArray(arr);
@@ -82,19 +83,14 @@ public class Lab9 {
 		
 		int index = 0;
 		for (int i = 0; i < arr.length; i ++) {
-			System.out.printf("\nInteration %d:\n",i);
 			for (int j = 0; j < (arr.length-1); j++) {
 				// Swap values if next value in array is less than current value
 			    if (arr[j+1] < arr[j]){
 			    	index = j+1;
-			    	printArray(arr);
-			    	swap(arr, j, index);
-			    	
+			    	swap(arr, j, index);	
 			    }
-			        
 			}
 		}
-		printArray(arr);
 		System.out.print("Bubble sort: ");
 		printArray(arr);
 		System.out.println("Swaps = " + swapCount);
@@ -118,28 +114,36 @@ public class Lab9 {
 			       {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200 },
 			       {22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 1},
 			       {20, 18, 13, 12, 11, 9, 6, 5, 4, 3, 2, 1, -87, -900, -9, -909, -911, -80, -44, -32, -1000} };
-		
-		
-		
+		// Deep Copy a1 to a2
 		int[][] a2 = deepCopy(a1);
-	
-		/*System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		for (int i = 0; i < a1.length; i++){
-			selectionSort(a1[i]);
-		}*/
-		selectionSort(a1[0]);
-		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		bubbleSort(a2[0]);
 		
-		/*System.out.println("A1: ");
+		// Initial Arrays
+		System.out.println("Initial A1: ");
 		for (int i = 0; i < a1.length; i ++) {
 			printArray(a1[i]);
 		}
-		
-		System.out.println("A2: ");
+		System.out.println("Initial A2: ");
 		for (int i = 0; i < a2.length; i ++) {
 			printArray(a2[i]);
-		}*/
+		}
+		System.out.println("--------------------------------------------------------------------------------");
+		
+		// Sort arrays
+		for (int i = 0; i < a1.length; i++){
+			bubbleSort(a2[i]);
+			selectionSort(a1[i]);
+			System.out.println("--------------------------------------------------------------------------------");
+		}
+		
+		// Sorted Arrays
+		System.out.println("Sorted A1: ");
+		for (int i = 0; i < a1.length; i ++) {
+			printArray(a1[i]);
+		}
+		System.out.println("Sorted A2: ");
+		for (int i = 0; i < a2.length; i ++) {
+			printArray(a2[i]);
+		}
     }
 
     
