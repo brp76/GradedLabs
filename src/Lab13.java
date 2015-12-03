@@ -48,7 +48,21 @@ public class Lab13 {
 			System.out.println(ex.toString());
 		}
 		
+		// NoogieException
+		try {
+			throw (new NoogieException());
+		} catch (NoogieException ex) {
+			System.out.println(ex.toString());
+		}
+		
 	}
 
 }
+
+class NoogieException extends Exception{
+	public NoogieException() {
+		// Do nothing
+	}
+}
+
 
