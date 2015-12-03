@@ -1,5 +1,13 @@
+import java.util.Scanner;
+
 public class Lab13 {
 	public static void main(String[] args) {
+		// CoogieException
+		try {
+			throw (new CoogieException());
+		} catch (CoogieException ex) {
+			System.out.println(ex.toString());
+		}
 		
 		// Try to access array with illegal index
 		try {
@@ -54,15 +62,26 @@ public class Lab13 {
 		} catch (NoogieException ex) {
 			System.out.println(ex.toString());
 		}
-		
 	}
-
 }
 
-class NoogieException extends Exception{
+class NoogieException extends Exception {
 	public NoogieException() {
 		// Do nothing
 	}
 }
 
-
+class CoogieException extends Exception {
+	private int numCats = 0;
+	public CoogieException() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter numCats > ");
+		numCats = sc.nextInt();
+		sc.close();
+	}
+	
+	public String toString() {
+		String s = numCats + " is too many cats!";
+		return s;
+	}
+}
