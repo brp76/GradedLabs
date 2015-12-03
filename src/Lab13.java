@@ -48,11 +48,27 @@ public class Lab13 {
 			System.out.println(ex.toString());
 		}
 		
+		// Try to access string out of index
+		try {
+			String f = "This string is too short";
+			System.out.println(f.charAt(100));
+		} catch (StringIndexOutOfBoundsException ex) {
+			System.out.println(ex.toString());
+		}
+		
 		// Try to convert non-number string to Integer
 		try {
-			String f = "not a number";
-			Integer g = Integer.parseInt(f);
+			String g = "not a number";
+			Integer h = Integer.parseInt(g);
 		} catch (NumberFormatException ex) {
+			System.out.println(ex.toString());
+		}
+		
+		// Try to store wrong type of object in an array of objects
+		try {
+			Object[] i = new String[5];
+			i[0] = new Integer(5);
+		} catch (ArrayStoreException ex) {
 			System.out.println(ex.toString());
 		}
 		
